@@ -78,7 +78,8 @@ def calculatePredictedLabel(weightsInOrder, inputsInOrder):
 
 
 def triggerSchedulerToDetermineActualLabelAfterTimeInterval(predictedLabel, uuid):
-    
+    # Creating a scheduled process so that after current prediction, an appropriate amount of time
+    # is waited and then the global weights are updated accordingly
     sched = Scheduler()
     sched.start()
     job = sched.add_date_job(lossCalculationWorkflow, '2013-08-05 23:47:05', [predictedLabel, uuid])
@@ -86,6 +87,8 @@ def triggerSchedulerToDetermineActualLabelAfterTimeInterval(predictedLabel, uuid
 
 
 def lossCalculationWorkflow(predictedLabel, uuid):
+    # Triggering a sequence of steps towards verifying that the prediction works accurately and
+     # triggering a weight update in the database.
     findDateCorrespondingToUUIDForVerification(uuid)
     
     triggerDataRetrievalWithSameParams(uuid)
@@ -95,8 +98,9 @@ def lossCalculationWorkflow(predictedLabel, uuid):
     return 0
 
 def findDateCorrespondingToUUIDForVerification(uuid):
+    # Checking object data, find latest date
     return 0
 
 def updateWeightsBasedOnCalculatedLoss():
-    
+    # Final updating weights to optimize further predictions
     return 0
