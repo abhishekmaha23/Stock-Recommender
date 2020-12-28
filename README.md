@@ -10,4 +10,4 @@ The third is a mixed neural-network architecture with RNN layers.
 
 Theoretically, an ensemble system such as this should become better with more training data, so we train it upon data and information from previous years.
 
-(Built in collaboration with Natarajan Chidamabaram)
+(Built in collaboration with Natarajan Chidambaram)
